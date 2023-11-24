@@ -1,2 +1,3 @@
 This was main file2
 post changes////
+Adding some conflicts in main branch 
