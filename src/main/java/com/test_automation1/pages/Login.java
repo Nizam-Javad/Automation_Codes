@@ -4,9 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.test_automation1.managers.DriverManager;
-
-public class Login extends DriverManager {
+public class Login extends BaseTest {
     @FindBy(xpath = "//div[@class='login_logo' and text()='Swag Labs']")
     WebElement pageTitle;
 
