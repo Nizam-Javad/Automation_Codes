@@ -1,4 +1,4 @@
-package com.test_automation1.pages;
+package com.test_automation1.pages.BasePage;
 
 import java.io.FileInputStream;
 import java.time.Duration;
@@ -57,6 +57,8 @@ public class BaseTest {
         driver.manage().window().maximize();
         Thread.sleep(1000);
         driver.get(properties.getProperty("url"));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
     }
 
 }
