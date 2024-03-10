@@ -10,6 +10,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 import com.test_automation1.pages.BasePage.BaseTest;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class TestUtils extends BaseTest {
 
@@ -43,6 +45,17 @@ public class TestUtils extends BaseTest {
     public static void longImplicitWait() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(longWait));
         ;
+    }
+
+    public static void selectDropDownValue(String dropdown, WebElement element){
+        Select select = new Select(element);
+        select.selectByValue(dropdown);
+
+    }
+
+    public static void clickElement(WebElement element){
+        element.click();
+
     }
 
 }

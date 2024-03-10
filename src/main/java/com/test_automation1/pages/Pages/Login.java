@@ -1,6 +1,6 @@
 package com.test_automation1.pages.Pages;
 
-import java.util.Properties;
+//import java.util.Properties;
 
 //import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -9,9 +9,12 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.test_automation1.pages.BasePage.BaseTest;
 
+import java.util.Properties;
+
+
 public class Login extends BaseTest {
 
-    Properties Prop = new Properties();
+ //   Properties Prop = new Properties();
     @FindBy(xpath = "//div[@class='login_logo' and text()='Swag Labs']")
     WebElement pageTitle;
 
@@ -33,23 +36,26 @@ public class Login extends BaseTest {
         return driver.getTitle();
     }
 
-    /*
-     * public HomePage enterCredentials() {
-     * userName.sendKeys(Prop.getProperty("username"));
-     * password.sendKeys(Prop.getProperty("password"));
-     * loginBtn.click();
-     * return HomePage;
-     * 
-     * }
-     */
-    public HomePage login() {
+
+     public HomePage enterCredentials() {
+     userName.sendKeys(properties.getProperty("username"));
+     password.sendKeys(properties.getProperty("password"));
+        // userName.sendKeys("standard_user");
+
+        // password.sendKeys("secret_sauce");
+     loginBtn.click();
+     return new HomePage();
+
+     }
+
+    public void login() {
         userName.sendKeys("standard_user");
 
         password.sendKeys("secret_sauce");
         // password.sendKeys(Prop.getProperty("password"));
         loginBtn.click();
 
-        return new HomePage();
+      //  return new HomePage();
     }
 
 }

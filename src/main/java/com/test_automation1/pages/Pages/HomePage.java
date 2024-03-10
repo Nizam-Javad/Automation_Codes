@@ -1,15 +1,20 @@
 package com.test_automation1.pages.Pages;
 
+import com.test_automation1.utilities.TestUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.test_automation1.pages.BasePage.BaseTest;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.Properties;
 //import org.testng.Assert
 
 public class HomePage extends BaseTest {
-    Login login;
-    HomePage homepage = new HomePage();
+    Properties Prop = new Properties();
+    //Login login;
+    //HomePage homepage = new HomePage();
 
     @FindBy(xpath = "//div[@class='app_logo' and text()='Swag Labs']")
     WebElement homePageTitle;
@@ -22,8 +27,23 @@ public class HomePage extends BaseTest {
 
     @FindBy(xpath = "//span[@class='title' and text()='Products']")
     WebElement pageTitle;
+    @FindBy(xpath="//button[@id='add-to-cart-sauce-labs-backpack']")
+    WebElement addToCart;
 
+
+    @FindBy(xpath="//div[@class='bm-burger-button']")
+    WebElement hamburger;
+
+    @FindBy(xpath="//button[@id='react-burger-cross-btn']")
+    WebElement crossIcon;
+
+    @FindBy(xpath="//select[@class='product_sort_container']")
+    WebElement nameDropDown;
+
+    @FindBy(xpath="//button[@class='btn btn_primary btn_small btn_inventory '][@name='add-to-cart-sauce-labs-backpack']")
+    WebElement saucaLabsBackpackAddToCartBtn;
     public HomePage() {
+
         PageFactory.initElements(driver, this);
     }
 
@@ -32,10 +52,31 @@ public class HomePage extends BaseTest {
 
     }
 
-    public boolean verifyCartLinkIsDisplayed() {
+    public void clickOnAddToCart() {
 
-        return pageTitle.isDisplayed();
+        //return pageTitle.isDisplayed();
+        addToCart.click();
 
     }
+    public void clickOnHamburger() throws InterruptedException {
+        System.out.println("Came Inside Hamburger");
+        //return pageTitle.isDisplayed();
+
+        hamburger.click();
+        Thread.sleep(1000);
+
+    }
+    public void clickOnCrossIcon() throws InterruptedException {
+        TestUtils.clickElement(crossIcon);
+        Thread.sleep(1000);
+    }
+
+    public void selectDropDownvalue(){
+        TestUtils.selectDropDownValue("hilo",nameDropDown);
+        //Select select = new Select(nameDropDown);
+        //select.selectByValue("hilo");
+        //select.selectByIndex(2);
+    }
+
 
 }
