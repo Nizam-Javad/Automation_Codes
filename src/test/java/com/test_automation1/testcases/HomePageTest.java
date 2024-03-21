@@ -20,12 +20,10 @@ import org.testng.Assert;
 
 public class HomePageTest extends BaseTest {
 
-    //WebDriver driver;
-   // Login login  = new Login();;
+    // WebDriver driver;
+    // Login login = new Login();;
     HomePage homepage = new HomePage();
     private Logger log;
-
-
 
     public HomePageTest() {
         super();
@@ -35,17 +33,18 @@ public class HomePageTest extends BaseTest {
 
     @BeforeMethod
     public void setUp() throws InterruptedException {
-        log= LogManager.getLogger(this.getClass().toString());
+        log = LogManager.getLogger(this.getClass().toString());
 
         log.info("Initializing browser");
         initializeDriver();
         String PT = Login.LoginPageTitle();
         log.info("Verifying the Title");
         System.out.println("PT is " + PT);
+        System.out.println("Hi");
 
-        Login login  = new Login();
-        //homepage= new HomePage();
-        homepage=login.enterCredentials();
+        Login login = new Login();
+        // homepage= new HomePage();
+        homepage = login.enterCredentials();
 
     }
 
@@ -53,11 +52,11 @@ public class HomePageTest extends BaseTest {
     public void clickOnHamburgerTest() throws Exception {
         // homepage.verifyCartLinkIsDisplayed();
         System.out.println("Came Inside Test of Home Page :) ");
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
-        //Assert.assertTrue(homepage.verifyCartLinkIsDisplayed());
-        //homepage.clickOnAddToCart();
-        //homepage = new HomePage();
+        // Assert.assertTrue(homepage.verifyCartLinkIsDisplayed());
+        // homepage.clickOnAddToCart();
+        // homepage = new HomePage();
 
         homepage.clickOnHamburger();
         homepage.clickOnCrossIcon();
