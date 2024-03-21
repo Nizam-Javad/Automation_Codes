@@ -25,41 +25,44 @@ public class BaseTest {
 
     public static WebDriver driver;
     public static Properties properties = new Properties();
-   // private static Logger log;
+    // private static Logger log;
     public static ExtentSparkReporter extentSparkReporter;
     public static ExtentReporter extentReporter;
     public static ExtentTest test;
 
     public BaseTest() {
         try {
-           FileInputStream fis = new FileInputStream(
+            FileInputStream fis = new FileInputStream(
                     "D:\\Users\\MNR\\Test\\Test_Automation1\\test_automation1\\src\\main\\java\\resources\\config.properties");
             properties.load(fis);
 
-            /*FileInputStream fis = new FileInputStream(
-                    "src/main/java/resources/config.properties");
-            properties.load(fis);*/
-            //D:\Users\MNR\Test\Test_Automation1\test_automation1\src\main\java\resources\config.properties
+            /*
+             * FileInputStream fis = new FileInputStream(
+             * "src/main/java/resources/config.properties");
+             * properties.load(fis);
+             */
+            // D:\Users\MNR\Test\Test_Automation1\test_automation1\src\main\java\resources\config.properties
 
-            //src/main/java/resources/config.properties
+            // src/main/java/resources/config.properties
 
             System.out.println(properties.getProperty("browser"));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     // public static Logger logger = LogManager.getLogger(DriverManager.class);
-    public static  void initializeReporter(){
+    public static void initializeReporter() {
 
     }
 
     public static void initializeDriver() throws InterruptedException {
         // String browser = "chrome";
-        //log = LogManager.getLogger(log.getClass().toString());
-        //log.info("Getting the browser from the Config File");
+        // log = LogManager.getLogger(log.getClass().toString());
+        // log.info("Getting the browser from the Config File");
         String browser = properties.getProperty("browser");
         // logger.info("Initializing the browser" + browser);
-       // log.info("Initialiing the browser"+browser);
+        // log.info("Initialiing the browser"+browser);
         switch (browser) {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
@@ -80,9 +83,9 @@ public class BaseTest {
         // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
-        //log.info("Maximizing the wimdow");
+        // log.info("Maximizing the wimdow");
         Thread.sleep(1000);
-       // log.info("Fetching the URL from COnfig FIle");
+        // log.info("Fetching the URL from COnfig FIle");
         driver.get(properties.getProperty("url"));
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
